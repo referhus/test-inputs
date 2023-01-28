@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <form class="values">
+            <input oninput="inputOne()" id="range1" type="text">
+            <input oninput="inputTwo()" id="range2" type="text">
+        </form>
+        <div class="container">
+            <div class="slider-track"></div>
+            <input type="range" min="0" max="100" id="slider-1" oninput="slideOne()">
+            <input type="range" min="0" max="100" id="slider-2" oninput="slideTwo()">
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

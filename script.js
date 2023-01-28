@@ -66,14 +66,29 @@ function fillColor(){
     sliderTrack.style.background = `linear-gradient(to right, gray ${percent1}% , #4b87db ${percent1}% , #4b87db ${percent2}%, gray ${percent2}%)`;
 }
 
-function submit(e) {
+async function submit(e) {
     e.preventDefault()
     let fd = new FormData()
     fd.append('min', displayValOne.value)
     fd.append('max', displayValTwo.value)
-    const xhr = new XMLHttpRequest(); 
-    xhr.open('POST', '/api/post', true);
-    xhr.send(fd)
+    
+    //с помощью fetch
+    const response = await fetch('/api/post', {
+        method: 'POST', 
+        body: fd
+    })
+    .then((data) => {
+        console.log(data)
+    })
+    .catch((data) => {
+        console.log(data)
+    })
+
+    return response
+    //с помощью XMLHttpRequest
+    // const xhr = new XMLHttpRequest(); 
+    // xhr.open('POST', '/api/post', true);
+    // xhr.send(fd)
 }
                                         
 document.querySelector('.values').addEventListener('submit', (e) => {
